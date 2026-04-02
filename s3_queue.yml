@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: cloud formation bucket creation
+
+Parameters:
+  BucketName: { Type: String, Default: "lols-buck-iac" }
+
+Resources:
+  DataBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: !Ref BucketName
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+
+  CloudQueue:
+    Type: "AWS::SQS::Queue"
+    Properties:
+      QueueName: "cloudfnq"
+
+Outputs:
+  MainBucketName:
+    Description: Created data bucket
+    Value: !Ref DataBucket
+  QueueARN:
+    Value: !Ref CloudQueue
