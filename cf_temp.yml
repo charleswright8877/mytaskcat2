@@ -41,18 +41,6 @@ Resources:
   SiteBucket:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
-    Properties:
-      OwnershipControls:
-        Rules:
-          - ObjectOwnership: ObjectWriter
-      PublicAccessBlockConfiguration:
-        BlockPublicAcls: false
-        BlockPublicPolicy: false
-        IgnorePublicAcls: false
-        RestrictPublicBuckets: false
-      AccessControl: PublicRead
-      WebsiteConfiguration:
-        IndexDocument: index.html
   CodePipelineRole:
     Type: AWS::IAM::Role
     Properties:
@@ -192,6 +180,3 @@ Outputs:
   PipelineUrl:
     Value: !Sub https://console.aws.amazon.com/codepipeline/home?region=${AWS::Region}#/view/${Pipeline}
     Description: CodePipeline URL
-  TaskCatDashboardUrl:
-    Value: !Sub http://${SiteBucket}.s3-website-us-east-1.amazonaws.com
-    Description: URL for TaskCat Dashboard (Available after the CodePipeline completes)
