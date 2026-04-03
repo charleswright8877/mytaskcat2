@@ -10,7 +10,9 @@ phases:
       - curl -O https://bootstrap.pypa.io/get-pip.py
       - python3 get-pip.py
       - pip install --upgrade pip
-      - pip3 install taskcat
+      - pip install taskcat
+      - pip install "setuptools<82"
+
   build:
     commands:
       - taskcat test run
