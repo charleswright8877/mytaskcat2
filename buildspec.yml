@@ -22,4 +22,4 @@ phases:
 artifacts:
   type: zip
   files:
-    - \index.html
+    - /index.html
