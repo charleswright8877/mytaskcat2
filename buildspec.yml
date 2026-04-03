@@ -16,7 +16,7 @@ phases:
       - taskcat test run
   post_build:
     commands:
-      - aws s3 cp --recursive  ./taskcat_outputs s3://${SiteBucket}/
+      - aws s3 cp --recursive  ./taskcat_outputs s3://pipeline-taskcat-sitebucket-w8patwbzatab/
 artifacts:
   type: zip
   files:
