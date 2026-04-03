@@ -20,6 +20,6 @@ phases:
     commands:
       - aws s3 cp --recursive  ./taskcat_outputs s3://pipeline-taskcat-sitebucket-w8patwbzatab/
 artifacts:
- # type: zip
   files:
-    - /index.html
+    - '**/*'
+  name: lols-artifact-$(date +%Y-%m-%d)
